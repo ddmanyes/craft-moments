@@ -1,5 +1,20 @@
 {{ define "main"}}
 
+<!-- 透過 Hugo 動態撈取所有 posts 資料，轉成 JSON 給 React 介面使用 -->
+<script>
+  window.hugoBlogData = [
+    {{ range (where site.RegularPages "Type" "posts") }}
+    {
+      id: "{{ .File.UniqueID }}",
+      title: {{ .Title | jsonify }},
+      description: {{ .Summary | plainify | jsonify }},
+      link: "{{ .RelPermalink }}",
+      cover: {{ .Params.cover | default "" | jsonify }}
+    },
+    {{ end }}
+  ];
+</script>
+
 <!-- 這是覆蓋主題預設首頁設定，將我們精緻的 React 部落格列表組件掛載在這裡 -->
 <div id="react-gallery-root"></div>
 
