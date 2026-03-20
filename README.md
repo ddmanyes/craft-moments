@@ -59,6 +59,25 @@ npm run start
 
 ---
 
+## 📥 跨設備轉移與安裝 (Clone from GitHub)
+
+若您想在另一台新的 Mac 或是別的電腦上繼續開發寫文章，**不需要拷貝隨身碟**，請直接透過 GitHub 將專案下載回來：
+
+1. **環境準備**：確保新電腦已安裝 Node.js 與 Hugo (`brew install hugo`)。
+2. **下載專案 (必須包含佈景主題模組)**：
+   打開全新電腦的終端機，輸入以下指令將專案安全抓取下來：
+   ```bash
+   git clone --recurse-submodules https://github.com/ddmanyes/craft-moments.git
+   ```
+3. **初始化與啟動**：
+   ```bash
+   cd craft-moments
+   npm install
+   npm run start
+   ```
+
+---
+
 ## ✍️ 如何撰寫新文章 (How to Post)
 
 所有文章都統一存放在 `content/posts/` 目錄中，並以 Markdown 格式 (`.md`) 撰寫。
@@ -89,7 +108,7 @@ categories: ["手作筆記"]         # 文章分類 (可選)
 加上 `<!--more-->` 標籤後，下面撰寫的所有內文就只會在**點進文章的閱讀頁面**中顯示，這是保持首頁排版乾淨俐落的核心技巧！
 ```
 
-### 方法三：在文章中插入高品質排版圖片
+### 方法二：在文章中插入高品質排版圖片
 
 在 Markdown 內文（位於 `<!--more-->` 之後的區域）也可以隨時插入圖片。\
 推薦使用原生的 `<img>` 結合 Tailwind CSS 來保持視覺優雅與圓角陰影：
@@ -101,21 +120,4 @@ categories: ["手作筆記"]         # 文章分類 (可選)
 </figure>
 ```
 
-> **存放路徑：** 所有的預設圖片需統一放入存放目錄：`static/images/`，使用時就可以直接拿著 `/craft-moments/images/檔名` 輕鬆呼叫出來。
-
-若需要在您的 Markdown 文章中加入具有「燈箱效果」或「進階互動」的畫廊，只需在內文直接插入以下的 `HTML 標籤` 即可。因為專案已設定完全相容 React 與 HTML 混寫！
-
-```markdown
----
-title: "精選陶瓷作品"
-date: 2026-03-26T15:00:00+08:00
-draft: false
----
-
-這是我最新製作的陶瓷，請點擊下方照片進入。
-
-<!-- 這個 div 會被 React 自動識別並掛載畫廊元件 -->
-<div id="react-gallery-root"></div>
-```
-
-如果有需要，您可以隨時至 `assets/js/Gallery.jsx` 修改這支 React 元件的內容或新增更多圖片假資料。
+> **存放路徑：** 所有的圖片需統一放入特定的存放目錄：`static/images/`，使用時就可以直接拿著 `/craft-moments/images/檔名` 輕鬆呼叫出來。
