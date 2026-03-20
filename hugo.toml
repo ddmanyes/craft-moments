@@ -1,0 +1,26 @@
+baseURL = "https://ddmanyes.github.io/craft-moments/"
+languageCode = "zh-tw"
+title = "手工藝術時光 (Craft Moments)"
+theme = "dream"
+
+[build]
+  writeStats = true
+
+[module]
+  [module.hugoVersion]
+    extended = true
+    min = "0.114.0"
+
+[params]
+  author = "Your Name"
+  description = "日系簡約、溫暖、高度視覺化的手工藝術展示空間"
+  
+# 啟用 JS 的 Esbuild 編譯，讓 React 可以直接被 Hugo 處理
+[security]
+  [security.exec]
+    allow = ['^npm$', '^npx$', '^postcss$', '^npx tailwindcss$']
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

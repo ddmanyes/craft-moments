@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root, [data-theme="light"] {
+    --color-primary: #E8DCC4;   /* 燕麥米白 */
+    --color-secondary: #8C7A6B; /* 胡桃木色 */
+    --color-accent: #C58371;    /* 陶土紅 */
+    --color-background: #FAF8F5;/* 日系原木白 */
+    --color-textMain: #333333;  /* 深灰 */
+    --color-card-bg: #ffffff;   /* 卡片白 */
+  }
+
+  .dark, [data-theme="dark"] {
+    --color-primary: #3E3B35;   /* 深色版：帶灰的暖色 */
+    --color-secondary: #C8B6A6; /* 深色版：加亮的標題色 */
+    --color-accent: #E2A696;    /* 深色版：亮陶土紅 */
+    --color-background: #1A1A1A;/* 深色版：深色背景 */
+    --color-textMain: #EFEFEF;  /* 深色版：淺灰字體 */
+    --color-card-bg: #2C2C2C;   /* 深色版：卡片深灰背景 */
+  }
+}
+
+
+/* 突破上層限制，強制滿版展示的 CSS 技巧 */
+#react-gallery-root {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
